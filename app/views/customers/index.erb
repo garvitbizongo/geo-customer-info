@@ -1,0 +1,12 @@
+<html>
+<head>
+</head>
+
+<body>
+<%= form_tag("/customer_info", method: "post", multipart: true) do %>
+  <%= label_tag(:q, "Upload txt file:") %>
+  <%= file_field_tag 'upload_field', accept: 'text/txt' %>
+  <%= submit_tag("Submit") %>
+<% end %>
+</body>
+</html>

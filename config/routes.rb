@@ -53,4 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  resources :customers, only: [:index] do
+    post :customer_info, on: :collection
+  end
 end
