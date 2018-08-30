@@ -3,6 +3,12 @@ class CustomersController < ApplicationController
   end
 
   def customer_info
-    
+    file_data = params[:customer_file].tempfile
+
+    data = []
+    File.open(file_data, 'r').each_line do |line|
+      data << JSON.parse(line)
+    end
+
   end
 end
