@@ -9,6 +9,11 @@ class CustomersController < ApplicationController
 
   def customer_info
     data = get_data_from_file(params[:customer_file])
+
+    if @errors.present?
+      return
+    end
+
     users_in_range = get_users_within_the_range(data)
     @sorted_list_of_users = sort_array_of_hashes(users_in_range, "user_id")
   end
@@ -45,13 +50,24 @@ class CustomersController < ApplicationController
 
   def get_data_from_file(file)
     file_data = file.tempfile
+    file_format = File.extname(file_data)
+
+    if file_format != ".txt"
+      @errors = "The file that you are uploading is of different format. We accept only txt format file"
+      return
+    end
 
     data = []
     File.open(file_data, 'r').each_line do |line|
       data << JSON.parse(line)
     end
 
-    data
+    if data.blank?
+      @errors = "The file that you have uploaded is blank."
+      return
+    else
+      data
+    end
   end
 
   def sort_array_of_hashes(hash, sorting_key)
