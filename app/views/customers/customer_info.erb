@@ -3,6 +3,20 @@
 </head>
 
 <body>
-Hello
+  <table style="width: 50%">
+    <tr>
+      <td>User Id</td>
+      <td>Name</td>
+      <td>Distance</td>
+    </tr>
+
+    <% @sorted_list_of_users.each do |item| %>
+      <tr>
+        <td><%= item["user_id"] %></td>
+        <td><%= item["name"] %></td>
+        <td><%= item["distance"].round(4) %></td>
+      </tr>
+    <% end %>
+  </table>
 </body>
 </html>
