@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   end
 
   def index
+    #Form to upload the file with customers details.
   end
 
   def customer_info
