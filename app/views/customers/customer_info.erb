@@ -4,24 +4,18 @@
 
 <body>
   <table style="width: 50%">
-    <% if @errors.present? %>
-      <div>
-        <%= @errors %>
-      </div>
-    <% else %>
-      <tr>
-        <td>User Id</td>
-        <td>Name</td>
-        <td>Distance</td>
-      </tr>
+    <tr>
+      <td>User Id</td>
+      <td>Name</td>
+      <td>Distance</td>
+    </tr>
 
-      <% @sorted_list_of_users.each do |item| %>
-        <tr>
-          <td><%= item["user_id"] %></td>
-          <td><%= item["name"] %></td>
-          <td><%= item["distance"].round(4) %></td>
-        </tr>
-      <% end %>
+    <% @sorted_list_of_users.each do |item| %>
+      <tr>
+        <td><%= item["user_id"] %></td>
+        <td><%= item["name"] %></td>
+        <td><%= item["distance"].round(4) %></td>
+      </tr>
     <% end %>
   </table>
 </body>

@@ -12,15 +12,14 @@ class CustomersController < ApplicationController
 
   def customer_info
     if params[:customer_file].blank?
-      @errors = "Please upload a txt file of customers."
-      redirect_to customers_url
+      redirect_to customers_url, flash: { error: "Please upload a txt file of customers." }
       return
     end
 
     data = get_data_from_file(params[:customer_file])
 
     if @errors.present?
-      redirect_to customers_url
+      redirect_to customers_url, flash: { error: @errors }
       return
     end
 
