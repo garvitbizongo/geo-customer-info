@@ -5,13 +5,21 @@ class CustomersController < ApplicationController
   end
 
   def index
+    binding.pry
     #Form to upload the file with customers details.
   end
 
   def customer_info
+    if params[:customer_file].blank?
+      @errors = "Please upload a txt file of customers."
+      redirect_to customers_url
+      return
+    end
+
     data = get_data_from_file(params[:customer_file])
 
     if @errors.present?
+      redirect_to customers_url
       return
     end
 
