@@ -8,6 +8,7 @@ capybara-*.html
 /public/system
 /coverage/
 /spec/tmp
+/artifacts/
 *.orig
 rerun.txt
 pickle-email-*.html
@@ -46,4 +47,3 @@ bower.json
 
 # Ignore node_modules
 node_modules/
-
