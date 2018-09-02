@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  attr_reader :errors
+
   module Constants
     RAD_PER_DEG = Math::PI / 180
     RM = 6371 # Earth radius in kilometers
