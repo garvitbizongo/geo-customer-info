@@ -5,7 +5,6 @@ class CustomersController < ApplicationController
   end
 
   def index
-    binding.pry
     #Form to upload the file with customers details.
   end
 
