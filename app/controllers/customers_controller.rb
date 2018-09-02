@@ -61,7 +61,7 @@ class CustomersController < ApplicationController
     file_data = file.tempfile
     file_format = File.extname(file_data)
 
-    if file_format != ".txt"
+    if !file_format.starts_with?(".txt")
       @errors = "The file that you are uploading is of different format. We accept only txt format file"
       return
     end
